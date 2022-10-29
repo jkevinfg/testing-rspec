@@ -7,33 +7,49 @@ class Store
     end
 
     def variants(product)
-      hash_variants = {}
-      @products_data.each do |product_data|
-         if product_data["producto"] == product
-           product_data.each do |variant,value|
-             if variant != "producto" &&  variant!= "sku" && variant!= "estado"
-               build_hash_variants(variant,value,hash_variants)
-             end
-           end
-         end
-      end
+      hash_variants = show_variants(product)
       build_response_variants(hash_variants)
     end
 
     def tree(product,option=nil)
-      hash_variants = variants(product)
-      option = hash_variants[0].values[0] if option.nil?
-      hash_init = hash_variants.find{|arr| arr[:opcion] = option}
-      hash_variants.delete(hash_init)
-      values = hash_init[:valores]
-
-
+      hash_variants = show_variants(product)
+      hash_variants
+      build_tree(hash_variants, option)
     end
 
     private
 
-    def recursive_tree(hash_variants, option)
-
+    def build_tree(hash_variants, option=nil)
+      option = hash_variants.keys[0] if option.nil?
+      values = hash_variants[option]
+      hash_variants.delete(option)
+      unless values.nil?
+        hash_general = {
+          opcion: option,
+          valores: build_branch(values, hash_variants)
+        }
+      end
+    end
+    def build_branch(values, hash_variants)
+      hash = {}
+      values.each do |value|
+        hash[value] = build_tree(hash_variants)
+      end
+      puts "xxxxxxxxxxxxxxxxxxxxxxx"
+      pp hash
+    end
+    def show_variants(product)
+      hash_variants = {}
+      @products_data.each do |product_data|
+        if product_data["producto"] == product
+          product_data.each do |variant,value|
+            if variant != "producto" &&  variant!= "sku" && variant!= "estado"
+              build_hash_variants(variant,value,hash_variants)
+            end
+          end
+        end
+      end
+      hash_variants
     end
 
     def build_response_variants(hash_variants)
