@@ -1,4 +1,5 @@
 require 'json'
+require 'byebug'
 
 class Store
     def initialize
@@ -13,31 +14,35 @@ class Store
 
     def tree(product,option=nil)
       hash_variants = show_variants(product)
-      hash_variants
-      build_tree(hash_variants, option)
+      options = hash_variants.keys
+      option = hash_variants.keys[0] if option.nil?
+      options.delete(option)
+      pp build_tree(hash_variants, option,options)
     end
 
     private
 
-    def build_tree(hash_variants, option=nil)
-      option = hash_variants.keys[0] if option.nil?
+    def build_tree(hash_variants, option, options)
       values = hash_variants[option]
-      hash_variants.delete(option)
       unless values.nil?
         hash_general = {
           opcion: option,
-          valores: build_branch(values, hash_variants)
+          valores: build_branch(values, hash_variants,options)
         }
       end
+      hash_general
     end
-    def build_branch(values, hash_variants)
-      hash = {}
+
+    def build_branch(values, hash_variants,options)
+      branch_hash = {}
+      noption = hash_variants.values.index(values)
+      option = options[noption]
       values.each do |value|
-        hash[value] = build_tree(hash_variants)
+        branch_hash[value] = build_tree(hash_variants, option, options)
       end
-      puts "xxxxxxxxxxxxxxxxxxxxxxx"
-      pp hash
+      branch_hash
     end
+
     def show_variants(product)
       hash_variants = {}
       @products_data.each do |product_data|
