@@ -1,0 +1,19 @@
+[
+  {
+    "producto": "polera",
+    "color": ["roja","verde","azul"],
+    "talla": ["S","M","L"],
+    "material": ["algodon","poliester"]
+  },
+  {
+    "producto": "calcetines",
+    "color": ["blanco","negro"],
+    "talla": ["chico","grande"]
+  },
+  {
+    "producto": "gorro",
+    "color": ["cafe","negro"]
+  }
+]
+
+

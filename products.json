@@ -1,0 +1,180 @@
+[
+  {
+    "producto": "polera",
+    "color": "roja",
+    "talla": "S",
+    "material": "algodon",
+    "estado": "inactivo",
+    "sku": "polera-roja-S-algodon"
+  },
+  {
+    "producto": "polera",
+    "color": "roja",
+    "talla": "S",
+    "material": "poliester",
+    "estado": "inactivo",
+    "sku": "polera-roja-S-poliester"
+  },
+  {
+    "producto": "polera",
+    "color": "roja",
+    "talla": "M",
+    "material": "algodon",
+    "estado": "activo",
+    "sku": "polera-roja-M-algodon"
+  },
+  {
+    "producto": "polera",
+    "color": "roja",
+    "talla": "M",
+    "material": "poliester",
+    "estado": "activo",
+    "sku": "polera-roja-M-poliester"
+  },
+  {
+    "producto": "polera",
+    "color": "roja",
+    "talla": "L",
+    "material": "algodon",
+    "estado": "activo",
+    "sku": "polera-roja-L-algodon"
+  },
+  {
+    "producto": "polera",
+    "color": "roja",
+    "talla": "L",
+    "material": "poliester",
+    "estado": "activo",
+    "sku": "polera-roja-L-poliester"
+  },
+  {
+    "producto": "polera",
+    "color": "verde",
+    "talla": "S",
+    "material": "algodon",
+    "estado": "inactivo",
+    "sku": "polera-verde-S-algodon"
+  },
+  {
+    "producto": "polera",
+    "color": "verde",
+    "talla": "S",
+    "material": "poliester",
+    "estado": "inactivo",
+    "sku": "polera-verde-S-poliester"
+  },
+  {
+    "producto": "polera",
+    "color": "verde",
+    "talla": "M",
+    "material": "algodon",
+    "estado": "activo",
+    "sku": "polera-verde-M-algodon"
+  },
+  {
+    "producto": "polera",
+    "color": "verde",
+    "talla": "M",
+    "material": "poliester",
+    "estado": "inactivo",
+    "sku": "polera-verde-M-poliester"
+  },
+  {
+    "producto": "polera",
+    "color": "verde",
+    "talla": "L",
+    "material": "algodon",
+    "estado": "activo",
+    "sku": "polera-verde-L-algodon"
+  },
+  {
+    "producto": "polera",
+    "color": "verde",
+    "talla": "L",
+    "material": "poliester",
+    "estado": "activo",
+    "sku": "polera-verde-L-poliester"
+  },
+  {
+    "producto": "polera",
+    "color": "azul",
+    "talla": "S",
+    "material": "algodon",
+    "estado": "activo",
+    "sku": "polera-azul-S-algodon"
+  },
+  {
+    "producto": "polera",
+    "color": "azul",
+    "talla": "S",
+    "material": "poliester",
+    "estado": "activo",
+    "sku": "polera-azul-S-poliester"
+  },
+  {
+    "producto": "polera",
+    "color": "azul",
+    "talla": "M",
+    "material": "algodon",
+    "estado": "activo",
+    "sku": "polera-azul-M-algodon"
+  },
+  {
+    "producto": "polera",
+    "color": "azul",
+    "talla": "M",
+    "material": "poliester",
+    "estado": "activo",
+    "sku": "polera-azul-M-poliester"
+  },
+  {
+    "producto": "polera",
+    "color": "azul",
+    "talla": "L",
+    "material": "algodon",
+    "estado": "activo",
+    "sku": "polera-azul-L-algodon"
+  },
+  {
+    "producto": "polera",
+    "color": "azul",
+    "talla": "L",
+    "material": "poliester",
+    "estado": "activo",
+    "sku": "polera-azul-L-poliester"
+  },
+  {
+    "producto": "calcetines",
+    "color": "blanco",
+    "talla": "chico",
+    "estado": "activo"
+  },
+  {
+    "producto": "calcetines",
+    "color": "blanco",
+    "talla": "grande",
+    "estado": "activo"
+  },
+  {
+    "producto": "calcetines",
+    "color": "negro",
+    "talla": "chico",
+    "estado": "inactivo"
+  },
+  {
+    "producto": "calcetines",
+    "color": "negro",
+    "talla": "grande",
+    "estado": "activo"
+  },
+  {
+    "producto": "gorro",
+    "color": "cafe",
+    "estado": "inactivo"
+  },
+  {
+    "producto": "gorro",
+    "color": "negro",
+    "estado": "activo"
+  }
+]
