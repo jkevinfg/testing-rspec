@@ -176,5 +176,11 @@
     "producto": "gorro",
     "color": "negro",
     "estado": "activo"
+  },
+  {
+    "producto": "pantalon",
+    "altura": "60cm",
+    "ancho": "25cm",
+    "estado": "activo"
   }
 ]

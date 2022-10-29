@@ -3,48 +3,50 @@ require 'json'
 class Store
     def initialize
       data = File.read('./products.json')
-      @products= JSON.parse(data)
+      @products_data= JSON.parse(data)
     end
 
-    def variants(product_variant)
-      arr_color = ["color"]
-      arr_size = ["talla"]
-      arr_material = ["material"]
-
-      @products.each do |product|
-         if product["producto"] == product_variant
-           filter_products(product, arr_color, arr_size, arr_material)
+    def variants(product)
+      hash_variants = {}
+      @products_data.each do |product_data|
+         if product_data["producto"] == product
+           product_data.each do |variant,value|
+             if variant != "producto" &&  variant!= "sku" && variant!= "estado"
+               build_hash_variants(variant,value,hash_variants)
+             end
+           end
          end
       end
+      build_response_variants(hash_variants)
+    end
 
-      arr = [arr_color, arr_size, arr_material]
-      build_response_variants(arr)
+    def tree(product,option=nil)
+      hash_variants = variants(product)
+      option = hash_variants[0].values[0] if option.nil?
+      hash_init = hash_variants.find{|arr| arr[:opcion] = option}
+      hash_variants.delete(hash_init)
+      values = hash_init[:valores]
+
+
     end
 
     private
 
-    def build_response_variants(arr)
+    def recursive_tree(hash_variants, option)
+
+    end
+
+    def build_response_variants(hash_variants)
       response = []
-      arr.each do |element|
-        next if element.count == 1
-        response.push({
-          opcion: element[0],
-          valores: element[1, element.count-1]
-        })
-      end
-      pp response
+      hash_variants.each{|variant, values| response.push({opcion: variant, valores: values}) }
       response
     end
 
-    def filter_products(product, arr_color, arr_size, arr_material)
-      color = product["color"]
-      size = product["talla"]
-      material = product["material"]
-
-      arr_color.push(color) unless (arr_color.include? color or color.nil?)
-      arr_size.push(size) unless (arr_size.include? size or size.nil?)
-      arr_material.push(material) unless (arr_material.include? material or material.nil?)
+    def build_hash_variants(variant,value,hash_variants)
+        return hash_variants[variant] = [value] if hash_variants[variant].nil?
+        hash_variants[variant].push(value) unless hash_variants[variant].include? value
     end
 end
 store = Store.new
-store.variants("gorro")
+store.tree("polera")
+
